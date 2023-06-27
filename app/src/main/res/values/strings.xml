@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">DiplomskiRad</string>
+    <string name="sign_out">Sign out</string>
+    <string name="hello">Hello, </string>
+    <string name="welcome">Welcome to Fire image annotation tool</string>
+    <string name="supporting_text">Are you sure you want to sign out?</string>
+    <string name="accept">YES</string>
+    <string name="decline">NO</string>
+    <string name="generate">Generate image set</string>
+    <string name="hint_email">Enter your e-mail address</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="not_registered">Not Registered Yet , Sign Up !</string>
+    <string name="sign_in_prompt">Sign in to continue</string>
+    <string name="register_prompt">Sign up to continue</string>
+    <string name="hint_password_confirm">Please confirm your password</string>
+    <string name="already_registered">Already Registered , Sign In !</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

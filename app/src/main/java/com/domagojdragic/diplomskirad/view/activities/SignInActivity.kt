@@ -1,10 +1,9 @@
-package com.domagojdragic.diplomskirad.view
+package com.domagojdragic.diplomskirad.view.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.domagojdragic.diplomskirad.MainActivity
 import com.domagojdragic.diplomskirad.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
 

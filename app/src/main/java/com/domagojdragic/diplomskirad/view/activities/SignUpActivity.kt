@@ -1,4 +1,4 @@
-package com.domagojdragic.diplomskirad.view
+package com.domagojdragic.diplomskirad.view.activities
 
 import android.content.Intent
 import android.os.Bundle
