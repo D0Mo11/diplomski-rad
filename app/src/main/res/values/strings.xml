@@ -16,4 +16,8 @@
     <string name="hint_password_confirm">Please confirm your password</string>
     <string name="already_registered">Already Registered , Sign In !</string>
     <string name="sign_up">Sign Up</string>
+    <string name="done">Done</string>
+    <string name="fire">FIRE</string>
+    <string name="smoke">SMOKE</string>
+    <string name="image_for_annotation">image for annotation</string>
 </resources>

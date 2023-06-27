@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fireClass"
+        android:enabled="true"
+        android:icon="@drawable/fire_24"
+        android:title="@string/fire"/>
+    <item
+        android:id="@+id/smokeClass"
+        android:enabled="true"
+        android:icon="@drawable/smoke_24"
+        android:title="@string/smoke" />
+</menu>
