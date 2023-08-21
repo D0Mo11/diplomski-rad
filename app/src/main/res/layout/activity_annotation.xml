@@ -20,10 +20,10 @@
         app:layout_constraintTop_toBottomOf="@id/action_layout">
 
         <ImageView
+            android:id="@+id/annotation_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/image_for_annotation"
-            android:src="@drawable/fire_image_example"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
