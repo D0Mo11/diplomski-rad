@@ -43,10 +43,22 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.firebase:firebase-auth:22.0.0'
+    implementation 'com.google.firebase:firebase-auth:22.1.1'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.2.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'io.insert-koin:koin-core:3.2.0'
     implementation 'io.insert-koin:koin-android:3.2.0'
+    implementation "io.coil-kt:coil:2.2.1"
+    implementation("io.ktor:ktor-client-core:2.1.0")
+    implementation("io.ktor:ktor-client-cio:2.1.0")
+    implementation 'io.ktor:ktor-client-logging-jvm:2.1.0'
+    implementation 'io.ktor:ktor-client-android:2.1.0'
+    implementation("io.ktor:ktor-client-content-negotiation:2.1.0")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.1.0")
+    implementation("io.ktor:ktor-client-auth:2.1.0")
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0"
+    apply plugin: 'kotlinx-serialization'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
 }
