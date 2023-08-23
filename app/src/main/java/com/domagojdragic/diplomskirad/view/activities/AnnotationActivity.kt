@@ -3,8 +3,10 @@ package com.domagojdragic.diplomskirad.view.activities
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.domagojdragic.diplomskirad.R
 import com.domagojdragic.diplomskirad.databinding.ActivityAnnotationBinding
 import com.domagojdragic.diplomskirad.di.MAIN_DISPATCHER
+import com.domagojdragic.diplomskirad.view.customview.AnnotationCanvas
 import com.domagojdragic.diplomskirad.viewmodel.AnnotationViewModel
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -28,8 +30,17 @@ class AnnotationActivity : AppCompatActivity() {
         binding = ActivityAnnotationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setBottomBar()
         setImage()
+        setSaveShapeButton()
     }
+
+    private fun setSaveShapeButton() {
+        binding.saveShape.setOnClickListener {
+            binding.annotationCanvasView.saveCurrentShape()
+        }
+    }
+
 
     private fun setImage() {
         mainScope.launch {
@@ -45,6 +56,26 @@ class AnnotationActivity : AppCompatActivity() {
                         throw Exception("${it.message}")
                     }
                 }
+            }
+        }
+    }
+
+    private fun setBottomBar() {
+        binding.bottomBar.selectedItemId = R.id.fireClass
+        binding.bottomBar.setOnItemSelectedListener {
+            val selectedObjectType: AnnotationCanvas.AnnotationObjectType
+            when (it.itemId) {
+                R.id.fireClass -> {
+                    selectedObjectType = AnnotationCanvas.AnnotationObjectType.FIRE
+                    binding.annotationCanvasView.updateObjectType(selectedObjectType)
+                    true
+                }
+                R.id.smokeClass -> {
+                    selectedObjectType = AnnotationCanvas.AnnotationObjectType.SMOKE
+                    binding.annotationCanvasView.updateObjectType(selectedObjectType)
+                    true
+                }
+                else -> false
             }
         }
     }

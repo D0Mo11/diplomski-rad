@@ -20,4 +20,5 @@
     <string name="fire">FIRE</string>
     <string name="smoke">SMOKE</string>
     <string name="image_for_annotation">image for annotation</string>
+    <string name="save_shape">SAVE SHAPE</string>
 </resources>
