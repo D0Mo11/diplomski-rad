@@ -21,4 +21,23 @@
     <string name="smoke">SMOKE</string>
     <string name="image_for_annotation">image for annotation</string>
     <string name="save_shape">SAVE SHAPE</string>
+    <string name="additional_information">ADDITIONAL INFORMATION</string>
+    <string name="space_type">SPACE TYPE:</string>
+    <string name="indoor">INDOOR</string>
+    <string name="outdoor">OUTDOOR</string>
+    <string name="unknown">UNKNOWN</string>
+    <string name="room_type">ROOM TYPE:</string>
+    <string name="warehouse">WAREHOUSE</string>
+    <string name="office">OFFICE</string>
+    <string name="time_of_day">TIME OF DAY</string>
+    <string name="daytime">DAYTIME</string>
+    <string name="nighttime">NIGHTTIME</string>
+    <string name="sunrise_sunset">SUNRISE / SUNSET</string>
+    <string name="flame_size">FLAME SIZE</string>
+    <string name="small">SMALL</string>
+    <string name="medium">MEDIUM</string>
+    <string name="large">LARGE</string>
+    <string name="none">NONE</string>
+    <string name="save">SAVE</string>
+    <string name="cancel">cancel</string>
 </resources>
