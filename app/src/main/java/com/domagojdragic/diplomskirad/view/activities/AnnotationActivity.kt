@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.domagojdragic.diplomskirad.R
 import com.domagojdragic.diplomskirad.databinding.ActivityAnnotationBinding
 import com.domagojdragic.diplomskirad.di.MAIN_DISPATCHER
+import com.domagojdragic.diplomskirad.view.customview.AdditionalInfoDialogView
 import com.domagojdragic.diplomskirad.view.customview.AnnotationCanvas
 import com.domagojdragic.diplomskirad.viewmodel.AnnotationViewModel
 import com.google.firebase.ktx.Firebase
@@ -24,6 +25,7 @@ class AnnotationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAnnotationBinding
     private val annotationViewModel: AnnotationViewModel by viewModel()
     private val storageRef = Firebase.storage.reference
+    private val additionalInfoDialogView: AdditionalInfoDialogView by lazy { AdditionalInfoDialogView(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,14 @@ class AnnotationActivity : AppCompatActivity() {
         setBottomBar()
         setImage()
         setSaveShapeButton()
+        setDoneButton()
+    }
+
+    private fun setDoneButton() {
+        binding.actionLayout.doneContainer.setOnClickListener {
+            additionalInfoDialogView.render()
+            additionalInfoDialogView.show(binding.root)
+        }
     }
 
     private fun setSaveShapeButton() {
