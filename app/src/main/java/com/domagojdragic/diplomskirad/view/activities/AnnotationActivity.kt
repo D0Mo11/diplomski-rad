@@ -44,6 +44,13 @@ class AnnotationActivity : AppCompatActivity() {
         setSaveShapeButton()
         setDoneButton()
         setUndoButton()
+        setClearCanvasButton()
+    }
+
+    private fun setClearCanvasButton() {
+        binding.btnClearCanvas.setOnClickListener {
+            binding.annotationCanvasView.clearCanvas()
+        }
     }
 
     private fun setUndoButton() {

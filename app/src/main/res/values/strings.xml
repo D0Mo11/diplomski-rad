@@ -59,4 +59,5 @@
     <string name="firestore_save_success_message">Successfully saved image annotation to firestore!</string>
     <string name="end_of_generated_set_message">You\'ve reached the end of generated set!</string>
     <string name="undo">"UNDO"</string>
+    <string name="clear_canvas">clear canvas</string>
 </resources>
