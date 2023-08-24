@@ -24,7 +24,7 @@ class ImageRepositoryImpl(private val storageApi: StorageApi) : ImageRepository 
                     imageResponse.contentType == CONTENT_TYPE_IMAGE
                 }
                 .shuffled()
-                .subList(0, 9)
+                .subList(0, 10)
                 .map { filteredImageResponse ->
                     filteredImageResponse.toImageEntity()
                 }

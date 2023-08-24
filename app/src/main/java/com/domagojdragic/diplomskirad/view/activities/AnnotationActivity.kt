@@ -1,11 +1,14 @@
 package com.domagojdragic.diplomskirad.view.activities
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.domagojdragic.diplomskirad.R
 import com.domagojdragic.diplomskirad.databinding.ActivityAnnotationBinding
 import com.domagojdragic.diplomskirad.di.MAIN_DISPATCHER
+import com.domagojdragic.diplomskirad.model.entity.ImageEntity
 import com.domagojdragic.diplomskirad.view.customview.AdditionalInfoDialogView
 import com.domagojdragic.diplomskirad.view.customview.AnnotationCanvas
 import com.domagojdragic.diplomskirad.viewmodel.AnnotationViewModel
@@ -26,6 +29,7 @@ class AnnotationActivity : AppCompatActivity() {
     private val annotationViewModel: AnnotationViewModel by viewModel()
     private val storageRef = Firebase.storage.reference
     private val additionalInfoDialogView: AdditionalInfoDialogView by lazy { AdditionalInfoDialogView(this) }
+    private lateinit var currentImage: ImageEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +44,9 @@ class AnnotationActivity : AppCompatActivity() {
 
     private fun setDoneButton() {
         binding.actionLayout.doneContainer.setOnClickListener {
-            additionalInfoDialogView.render()
+            val smokeShapes = binding.annotationCanvasView.getSmokeShapes()
+            val fireShapes = binding.annotationCanvasView.getFireShapes()
+            additionalInfoDialogView.render(smokeShapes, fireShapes, annotationViewModel, currentImage) { setImage() }
             additionalInfoDialogView.show(binding.root)
         }
     }
@@ -57,13 +63,20 @@ class AnnotationActivity : AppCompatActivity() {
             annotationViewModel.imagesState.collect { images ->
                 if (images.isNotEmpty()) {
                     val imageName = annotationViewModel.getImageName(images)
-                    val imageRef = storageRef.child(imageName)
-                    val localFile = File.createTempFile("tempImage", "jpg")
-                    imageRef.getFile(localFile).addOnSuccessListener {
-                        val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-                        binding.annotationImage.setImageBitmap(bitmap)
-                    }.addOnFailureListener {
-                        throw Exception("${it.message}")
+                    if (imageName == null) {
+                        Toast.makeText(binding.root.context, "You've reached the end of generated set!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(binding.root.context, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        currentImage = annotationViewModel.getCurrentImage(images)
+                        val imageRef = storageRef.child(imageName)
+                        val localFile = File.createTempFile("tempImage", "jpg")
+                        imageRef.getFile(localFile).addOnSuccessListener {
+                            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                            binding.annotationImage.setImageBitmap(bitmap)
+                        }.addOnFailureListener {
+                            throw Exception("${it.message}")
+                        }
                     }
                 }
             }

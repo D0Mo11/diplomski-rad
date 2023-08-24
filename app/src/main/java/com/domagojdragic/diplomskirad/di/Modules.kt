@@ -13,10 +13,11 @@ import org.koin.dsl.module
 import kotlin.coroutines.CoroutineContext
 
 const val MAIN_DISPATCHER = "MAIN_DISPATCHER"
+const val BG_DISPATCHER = "BACKGROUND_DISPATCHER"
 
 val viewModelModule = module {
 
-    viewModel { AnnotationViewModel(get()) }
+    viewModel { AnnotationViewModel(get(), get(named(BG_DISPATCHER))) }
 }
 
 val repositoryModule = module {
@@ -36,4 +37,5 @@ val serviceModule = module {
 
 val concurrencyModule = module {
     single<CoroutineContext>(named(MAIN_DISPATCHER)) { Dispatchers.Main }
+    single<CoroutineContext>(named(BG_DISPATCHER)) { Dispatchers.IO }
 }

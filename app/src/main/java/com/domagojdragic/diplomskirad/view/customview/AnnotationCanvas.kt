@@ -141,6 +141,9 @@ class AnnotationCanvas @JvmOverloads constructor(
         invalidate()
     }
 
+    fun getFireShapes(): List<List<PointF>> = annotationFireShapes.toList()
+    fun getSmokeShapes(): List<List<PointF>> = annotationSmokeShapes.toList()
+
     enum class AnnotationObjectType {
         FIRE, SMOKE;
     }

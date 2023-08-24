@@ -6,7 +6,7 @@ data class ImageEntity(
     val imageName: String,
     val selfLink: String,
     val contentType: String,
-    val isComplete: Boolean,
+    var isComplete: Boolean,
 )
 
 fun ImageResponse.toImageEntity() = ImageEntity(
