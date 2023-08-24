@@ -1,8 +1,8 @@
 package com.domagojdragic.diplomskirad.view.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.domagojdragic.diplomskirad.R
 import com.domagojdragic.diplomskirad.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder

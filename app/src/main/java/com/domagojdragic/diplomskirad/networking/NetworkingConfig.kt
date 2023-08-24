@@ -7,12 +7,11 @@ import io.ktor.client.plugins.auth.*
 import io.ktor.client.plugins.auth.providers.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.logging.*
-import io.ktor.client.plugins.observer.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
 
 val access_token =
-    "ya29.a0AfB_byBM2SLQ5igLx6hOmonPArgwzMUGw5CyvH3C3LEpx6tddAmZG521c7qh3ZZJziL0FMUlOLf7ywTkjfQIXVUewNSwX1fLpkIqf801DS4JtQUOu6DvUwFjE-01z6-3iVvYd3dYt2nVIKxW-Hnrx-8zDF-1noWwa249ZGtPaCgYKAQsSARASFQHsvYlsovzjHp0kmshOWbHU21nceg0175"
+    "ya29.a0AfB_byAUoCr4tiskIswZU-1HS1GXG1PDR7Rd1swyc7t2Dc189DWm8aHf-NPsNjS7K07ovkDS7qO7SEwxhJkHTomLZ0t1VY4bPyPGFX9jjJzYlg3GKb0OXq9UVuD2HGi7hIBXWRAyXByKBfiSUAvVs89WysNhakT6G1idr0r3aCgYKAU8SARASFQHsvYlsKcaLYFGMg5gjzsH2aaywTA0175"
 val refresh_token = "1//04oKMke2rfz3YCgYIARAAGAQSNwF-L9Ir5ncRGEkqIGSLRQJyUGWWhB5OQCu8PoQ5c66_irlN1YAEBkAu9BW5SFW9xqofDIjxNzQ"
 
 val OAuth2Client: HttpClient = HttpClient(CIO) {
@@ -42,10 +41,5 @@ val OAuth2Client: HttpClient = HttpClient(CIO) {
             ignoreUnknownKeys = true
         }
         )
-    }
-    install(ResponseObserver) {
-        onResponse { response ->
-            Log.d("HTTP status", "${response.status.value}")
-        }
     }
 }
