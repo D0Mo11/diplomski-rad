@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activities.AnnotationActivity">
+
+    <include
+        android:id="@+id/action_layout"
+        layout="@layout/action_bar_layout" />
+
+    <Button
+        android:id="@+id/save_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/save_shape"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/action_layout" />
+
+    <Button
+        android:id="@+id/btn_undo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/undo"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/save_shape"
+        app:layout_constraintTop_toBottomOf="@id/action_layout" />
+
+    <Button
+        android:id="@+id/btn_clear_canvas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/clear_canvas"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/btn_undo"
+        app:layout_constraintTop_toBottomOf="@id/action_layout" />
+
+    <FrameLayout
+        android:id="@+id/canvas_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/save_shape">
+
+        <ImageView
+            android:id="@+id/annotation_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/image_for_annotation"
+            android:scaleType="fitXY"
+            android:src="@android:color/transparent" />
+
+        <com.domagojdragic.diplomskirad.view.customview.AnnotationCanvas
+            android:id="@+id/annotation_canvas_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/canvas_container"
+        app:menu="@menu/bottom_bar_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>
