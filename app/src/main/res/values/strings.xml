@@ -40,4 +40,5 @@
     <string name="none">NONE</string>
     <string name="save">SAVE</string>
     <string name="cancel">cancel</string>
+    <string name="building">BUILDING</string>
 </resources>

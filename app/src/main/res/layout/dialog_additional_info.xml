@@ -70,41 +70,31 @@
                         android:id="@+id/group_space_type"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/space_type">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        <RadioButton
+                            android:id="@+id/btn_indoor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/indoor"
+                            android:textSize="14sp" />
 
-                            <RadioButton
-                                android:id="@+id/btn_indoor"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/indoor"
-                                android:textSize="14sp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                        <RadioButton
+                            android:id="@+id/btn_outdoor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/outdoor"
+                            android:textSize="14sp" />
 
-                            <RadioButton
-                                android:id="@+id/btn_outdoor"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/outdoor"
-                                android:textSize="14sp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_indoor" />
+                        <RadioButton
+                            android:id="@+id/btn_unknown_space_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/unknown"
+                            android:textSize="14sp" />
 
-                            <RadioButton
-                                android:id="@+id/btn_unknown_space_type"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/unknown"
-                                android:textSize="14sp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_outdoor" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </RadioGroup>
 
                     <TextView
@@ -125,38 +115,28 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
+                        android:orientation="vertical"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/room_type">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        <RadioButton
+                            android:id="@+id/btn_warehouse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/warehouse" />
 
-                            <RadioButton
-                                android:id="@+id/btn_warehouse"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/warehouse"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                        <RadioButton
+                            android:id="@+id/btn_office"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/office" />
 
-                            <RadioButton
-                                android:id="@+id/btn_office"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/office"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_warehouse" />
+                        <RadioButton
+                            android:id="@+id/btn_building"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/building" />
 
-                            <RadioButton
-                                android:id="@+id/btn_building"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/unknown"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_office" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </RadioGroup>
 
                     <TextView
@@ -176,46 +156,34 @@
                         android:id="@+id/group_time_of_day"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/time_of_day">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        <RadioButton
+                            android:id="@+id/btn_daytime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/daytime" />
 
-                            <RadioButton
-                                android:id="@+id/btn_daytime"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/daytime"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                        <RadioButton
+                            android:id="@+id/btn_nighttime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/nighttime" />
 
-                            <RadioButton
-                                android:id="@+id/btn_nighttime"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/nighttime"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_daytime" />
+                        <RadioButton
+                            android:id="@+id/btn_sunrise_sunset"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sunrise_sunset" />
 
-                            <RadioButton
-                                android:id="@+id/btn_sunrise_sunset"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/sunrise_sunset"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_nighttime" />
+                        <RadioButton
+                            android:id="@+id/btn_unknown_daytime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/unknown" />
 
-                            <RadioButton
-                                android:id="@+id/btn_unknown_daytime"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/unknown"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_sunrise_sunset" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </RadioGroup>
 
                     <TextView
@@ -238,43 +206,30 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/flame_size">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        <RadioButton
+                            android:id="@+id/btn_small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/small" />
 
-                            <RadioButton
-                                android:id="@+id/btn_small"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/small"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                        <RadioButton
+                            android:id="@+id/btn_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/medium" />
 
-                            <RadioButton
-                                android:id="@+id/btn_medium"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/medium"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_small" />
+                        <RadioButton
+                            android:id="@+id/btn_large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/large" />
 
-                            <RadioButton
-                                android:id="@+id/btn_large"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/large"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_medium" />
+                        <RadioButton
+                            android:id="@+id/btn_none"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/none" />
 
-                            <RadioButton
-                                android:id="@+id/btn_none"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/none"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/btn_large" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </RadioGroup>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>
