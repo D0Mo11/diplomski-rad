@@ -120,6 +120,7 @@ class AnnotationCanvas @JvmOverloads constructor(
     }
 
     private fun saveFireShape() {
+        annotationPointsFire.add(annotationPointsFire.first())
         annotationFireShapes.add(annotationPointsFire.toList())
         annotationPointsFire.clear()
         saveShape = false
@@ -127,6 +128,7 @@ class AnnotationCanvas @JvmOverloads constructor(
     }
 
     private fun saveSmokeShape() {
+        annotationPointsSmoke.add(annotationPointsSmoke.first())
         annotationSmokeShapes.add(annotationPointsSmoke.toList())
         annotationPointsSmoke.clear()
         saveShape = false
@@ -156,8 +158,10 @@ class AnnotationCanvas @JvmOverloads constructor(
 
     fun undo() {
         if (annotationObjectType == AnnotationObjectType.FIRE) {
+            if (annotationPointsFire.isEmpty()) return
             annotationPointsFire.removeLast()
         } else {
+            if (annotationPointsSmoke.isEmpty()) return
             annotationPointsSmoke.removeLast()
         }
         invalidate()
