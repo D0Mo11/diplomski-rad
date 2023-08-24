@@ -1,11 +1,9 @@
 package com.domagojdragic.diplomskirad.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.domagojdragic.diplomskirad.model.entity.ImageEntity
 import com.domagojdragic.diplomskirad.model.interfaces.ImageRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

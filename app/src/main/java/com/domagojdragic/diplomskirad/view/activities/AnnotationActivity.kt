@@ -21,6 +21,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 import java.io.File
 
+private const val TEMP_IMAGE_PREFIX = "tempImage"
+private const val TEMP_IMAGE_SUFFIX = "jpg"
+
 class AnnotationActivity : AppCompatActivity() {
 
     private val mainDispatcher = named(MAIN_DISPATCHER)
@@ -40,6 +43,13 @@ class AnnotationActivity : AppCompatActivity() {
         setImage()
         setSaveShapeButton()
         setDoneButton()
+        setUndoButton()
+    }
+
+    private fun setUndoButton() {
+        binding.btnUndo.setOnClickListener {
+            binding.annotationCanvasView.undo()
+        }
     }
 
     private fun setDoneButton() {
@@ -62,15 +72,16 @@ class AnnotationActivity : AppCompatActivity() {
         mainScope.launch {
             annotationViewModel.imagesState.collect { images ->
                 if (images.isNotEmpty()) {
+                    binding.annotationCanvasView.clearCanvas()
                     val imageName = annotationViewModel.getImageName(images)
                     if (imageName == null) {
-                        Toast.makeText(binding.root.context, "You've reached the end of generated set!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(binding.root.context, getString(R.string.end_of_generated_set_message), Toast.LENGTH_SHORT).show()
                         val intent = Intent(binding.root.context, MainActivity::class.java)
                         startActivity(intent)
                     } else {
                         currentImage = annotationViewModel.getCurrentImage(images)
                         val imageRef = storageRef.child(imageName)
-                        val localFile = File.createTempFile("tempImage", "jpg")
+                        val localFile = File.createTempFile(TEMP_IMAGE_PREFIX, TEMP_IMAGE_SUFFIX)
                         imageRef.getFile(localFile).addOnSuccessListener {
                             val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
                             binding.annotationImage.setImageBitmap(bitmap)

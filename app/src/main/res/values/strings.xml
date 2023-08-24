@@ -39,6 +39,24 @@
     <string name="large">LARGE</string>
     <string name="none">NONE</string>
     <string name="save">SAVE</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="building">BUILDING</string>
+    <string name="not_selected">Not selected</string>
+    <string name="indoor_save">Indoor</string>
+    <string name="outdoor_save">Outdoor</string>
+    <string name="unknown_save">Unknown</string>
+    <string name="warehouse_save">Warehouse</string>
+    <string name="office_save">Office</string>
+    <string name="building_save">Building</string>
+    <string name="daytime_save">Daytime</string>
+    <string name="nighttime_save">Nigthttime</string>
+    <string name="sunrise_sunset_save">Sunrise/Sunset</string>
+    <string name="small_save">Small</string>
+    <string name="medium_save">Medium</string>
+    <string name="large_save">Large</string>
+    <string name="none_save">"None"</string>
+    <string name="firestore_save_failure_message">Error saving image annotation to firestore! Please try again</string>
+    <string name="firestore_save_success_message">Successfully saved image annotation to firestore!</string>
+    <string name="end_of_generated_set_message">You\'ve reached the end of generated set!</string>
+    <string name="undo">"UNDO"</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.domagojdragic.diplomskirad.view.customview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -52,6 +53,7 @@ class AnnotationCanvas @JvmOverloads constructor(
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         if (event != null) {
             when (event.action) {
@@ -71,13 +73,13 @@ class AnnotationCanvas @JvmOverloads constructor(
 
     private fun drawFirePoints(canvas: Canvas, paint: Paint) {
         for (point in annotationPointsFire) {
-            canvas.drawPoint(point.x, point.y, paint)
+            canvas.drawPoint(point.x, point.y, paint.apply { strokeWidth = 15f })
         }
     }
 
     private fun drawSmokePoints(canvas: Canvas, paint: Paint) {
         for (point in annotationPointsSmoke) {
-            canvas.drawPoint(point.x, point.y, paint)
+            canvas.drawPoint(point.x, point.y, paint.apply { strokeWidth = 15f })
         }
     }
 
@@ -85,7 +87,7 @@ class AnnotationCanvas @JvmOverloads constructor(
         for (i in 1 until annotationPointsFire.size) {
             val startPoint = annotationPointsFire[i - 1]
             val endPoint = annotationPointsFire[i]
-            canvas.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y, paint)
+            canvas.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y, paint.apply { strokeWidth = 8f })
         }
     }
 
@@ -93,7 +95,7 @@ class AnnotationCanvas @JvmOverloads constructor(
         for (i in 1 until annotationPointsSmoke.size) {
             val startPoint = annotationPointsSmoke[i - 1]
             val endPoint = annotationPointsSmoke[i]
-            canvas.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y, paint)
+            canvas.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y, paint.apply { strokeWidth = 8f })
         }
     }
 
@@ -102,7 +104,7 @@ class AnnotationCanvas @JvmOverloads constructor(
             for (i in 1 until points.size) {
                 val startPoint = points[i - 1]
                 val endPoint = points[i]
-                canvas.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y, paint)
+                canvas.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y, paint.apply { strokeWidth = 8f })
             }
         }
     }
@@ -112,7 +114,7 @@ class AnnotationCanvas @JvmOverloads constructor(
             for (i in 1 until points.size) {
                 val startPoint = points[i - 1]
                 val endPoint = points[i]
-                canvas.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y, paint)
+                canvas.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y, paint.apply { strokeWidth = 8f })
             }
         }
     }
@@ -143,6 +145,23 @@ class AnnotationCanvas @JvmOverloads constructor(
 
     fun getFireShapes(): List<List<PointF>> = annotationFireShapes.toList()
     fun getSmokeShapes(): List<List<PointF>> = annotationSmokeShapes.toList()
+
+    fun clearCanvas() {
+        annotationPointsFire.clear()
+        annotationPointsSmoke.clear()
+        annotationFireShapes.clear()
+        annotationSmokeShapes.clear()
+        invalidate()
+    }
+
+    fun undo() {
+        if (annotationObjectType == AnnotationObjectType.FIRE) {
+            annotationPointsFire.removeLast()
+        } else {
+            annotationPointsSmoke.removeLast()
+        }
+        invalidate()
+    }
 
     enum class AnnotationObjectType {
         FIRE, SMOKE;
